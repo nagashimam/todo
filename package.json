@@ -7,9 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "jest --no-cache --watch",
-    "docs:json": "compodoc --disablePrivate -p ./tsconfig.json -e json -d .",
-    "storybook": "npm run docs:json && start-storybook -p 6006",
-    "build-storybook": "npm run docs:json && build-storybook"
+    "storybook:docs": "compodoc --disablePrivate -p ./tsconfig.json -e json -d .",
+    "storybook:scss": "rimraf ./.storybook/css && sass src/scss:./.storybook/css/ --no-source-map --style=compressed",
+    "storybook:prep": "npm run storybook:docs && npm run storybook:scss",
+    "storybook:start": "npm run storybook:prep && start-storybook -s ./.storybook/css -p 6006",
+    "storybook:build": "npm run storybook:prep && build-storybook -s ./.storybook/css"
   },
   "private": true,
   "dependencies": {
@@ -44,6 +46,8 @@
     "babel-loader": "^8.2.3",
     "jest": "^27.3.1",
     "jest-preset-angular": "^11.0.0",
+    "rimraf": "^3.0.2",
+    "sass": "^1.43.4",
     "typescript": "~4.4.3"
   }
 }

@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /documentation.json
+/.storybook/css
 # Only exists if Bazel was run
 /bazel-out
 
