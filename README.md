@@ -1,27 +1,27 @@
 # Todo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
+学習用のToDoアプリ
 
-## Development server
+## できるようになりたいこと
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- freeeのアクセシビリィガイドラインに基づいてアプリを実装できる
+- freeeのアクセシビリィチェックリストに基づいてアプリのアクセシビリティ試験ができる
+- コマンド・クエリパターンを使ってCRUD処理を実装できる
+- Jestを使ってServiceのテストができる
+- Testing LibraryとStorybookを使ってViewのVRTテストができる
 
-## Code scaffolding
+## ロードマップ
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ロードマップの各大項目を実装する毎にLighthouseでのチェックやアクセシビリティ試験をしたい
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- [] ToDoのCRUD処理を実装する
+    - [] ToDoを一覧表示するViewを追加
+    - [] ToDoをlocalstrageに追加する処理を追加
+    - [] ToDoをlocalstrageから読み込む処理を追加
+    - [] ToDoの詳細を表示するViewを追加
+    - [] localstrageに保存してあるToDoを更新する処理を追加
+- [] 認証機能を追加する
+    - [] ユーザー登録する処理を追加
+    - [] ログイン処理を追加
+    - [] ログインしていない人がToDo画面に遷移できないようにする処理を追加
+- [] localstrageの代わりにDBにデータを保存できるようにする
