@@ -1,0 +1,64 @@
+import { Canvas, Story } from "@storybook/addon-docs";
+
+# タイポグラフィー
+
+## フォントファミリー
+
+大きく以下の 2 種類に分けています。
+
+1. 読ませるためのフォント(段落に使う)
+2. 見せるためのフォント(段落以外に使う)
+
+前者は明朝体、後者はゴシック体です。
+
+表示速度を優先するために、Web フォントではなく OS 標準フォントを使っています。
+
+## フォントカラー
+
+基本的に--primary を使います(背景が--primary の場合は--secondary)。.important を指定した箇所のみ--accent になります。
+
+色だけで意味を伝えるのは好ましくないので、.important を指定した箇所は font-weight と font-size も合わせて変えています。[色](/docs/styles-color--color)
+
+## フォントの種類
+
+### 見出し(レベル 1~レベル 3)
+
+<Canvas>
+  <Story id="styles-typography--heading"></Story>
+</Canvas>
+
+|          | line-height | font-weight | font-size |
+| -------- | ----------- | ----------- | --------- |
+| レベル 1 | 1.5         | 700         | 3rem      |
+| レベル 2 | 1.5         | 700         | 2.5rem    |
+| レベル 3 | 1.5         | 700         | 2rem      |
+
+### 段落
+
+<Canvas>
+  <Story id="styles-typography--paragraph"></Story>
+</Canvas>
+
+|      | line-height | font-weight | font-size |
+| ---- | ----------- | ----------- | --------- |
+| 段落 | 1.5         | 300         | 1rem      |
+
+### 重要
+
+<Canvas>
+  <Story id="styles-typography--important"></Story>
+</Canvas>
+
+|        | line-height | font-weight | font-size |
+| ------ | ----------- | ----------- | --------- |
+| 重要　 | 1.2         | 700         | 1rem      |
+
+### その他(ラベルや短文など)
+
+<Canvas>
+  <Story id="styles-typography--others"></Story>
+</Canvas>
+
+|        | line-height | font-weight | font-size |
+| ------ | ----------- | ----------- | --------- |
+| その他 | 1.2         | 300         | 1rem      |
