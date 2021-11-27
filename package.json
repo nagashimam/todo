@@ -11,7 +11,11 @@
     "storybook:scss": "rimraf ./.storybook/css && sass src/scss:./.storybook/css/ --no-source-map --style=compressed",
     "storybook:prep": "npm run storybook:docs && npm run storybook:scss",
     "storybook:start": "npm run storybook:prep && start-storybook -s ./.storybook/css -p 6006",
-    "storybook:build": "npm run storybook:prep && build-storybook -s ./.storybook/css"
+    "storybook:build": "npm run storybook:prep && build-storybook -s ./.storybook/css",
+    "vrt:storycap": "storycap --serverCmd 'npx http-server storybook-static -p 9001' http://localhost:9001 -o vrt/actual",
+    "vrt:compare": "reg-cli ./vrt/actual ./vrt/expected ./vrt/diff -R ./vrt/report.html",
+    "vrt:update": "reg-cli ./vrt/actual ./vrt/expected ./vrt/diff -U -J ./vrt/reg.json",
+    "vrt:show-report": "npm run storybook:build && npm run vrt:storycap && npm run vrt:compare && open ./vrt/report.html"
   },
   "private": true,
   "dependencies": {
@@ -46,10 +50,13 @@
     "@types/node": "^12.11.1",
     "@webcomponents/custom-elements": "^1.5.0",
     "babel-loader": "^8.2.3",
+    "http-server": "^14.0.0",
     "jest": "^27.3.1",
     "jest-preset-angular": "^11.0.0",
+    "reg-cli": "^0.17.4",
     "rimraf": "^3.0.2",
     "sass": "^1.43.4",
+    "storycap": "^3.1.0",
     "typescript": "~4.4.3"
   }
 }
