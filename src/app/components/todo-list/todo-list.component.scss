@@ -1,0 +1,34 @@
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+li:not(:last-child) {
+  margin-bottom: var(--item-spacing);
+}
+
+$checkbox-size: 2rem;
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: $checkbox-size;
+  height: $checkbox-size;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+}
+
+label {
+  max-width: calc(100% - $checkbox-size - calc(var(--item-spacing) * 1.5));
+}
+
+input:focus {
+  outline: 4px dashed var(--primary);
+  outline-offset: 2px;
+}
