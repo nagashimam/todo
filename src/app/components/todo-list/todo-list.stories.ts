@@ -15,6 +15,9 @@ export default {
 
 export const NoTodo = {
   storyName: '1つもない',
+  args: {
+    todos: [],
+  },
 };
 export const OneTodo = {
   args: {
@@ -51,7 +54,7 @@ const MarginCheckTemplate: Story<TodoListComponent> = (args) => ({
   template: `
     <p>リストの上下にマージンはない</p>
     <div style="height:0.5rem;background-color:var(--primary)"></div>
-    <app-todo-list [todos]="todos" ></app-todo-list>
+    <app-todo-list [todos]="todos"></app-todo-list>
     <div style="height:0.5rem;background-color:var(--primary)"></div>
   `,
 });

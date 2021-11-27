@@ -1,9 +1,10 @@
-<ul *ngIf="todos">
-  <ng-container *ngFor="let todo of todos">
+<ul *ngIf="todos.length > 0">
+  <ng-container *ngFor="let todo of todos; let i = index">
     <li>
-      <input id="0" class="mr-item-spacing" type="checkbox" /><label for="0">{{
-        todo
-      }}</label>
+      <input [id]="i" class="mr-item-spacing" type="checkbox" /><label
+        [for]="i"
+        >{{ todo }}</label
+      >
     </li>
   </ng-container>
 </ul>
