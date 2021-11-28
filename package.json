@@ -15,7 +15,8 @@
     "vrt:storycap": "storycap --serverCmd 'npx http-server storybook-static -p 9001' http://localhost:9001 -o vrt/actual",
     "vrt:compare": "reg-cli ./vrt/actual ./vrt/expected ./vrt/diff -R ./vrt/report.html -J ./vrt/reg.json",
     "vrt:update": "reg-cli ./vrt/actual ./vrt/expected ./vrt/diff -U -J ./vrt/reg.json",
-    "vrt:show-report": "npm run storybook:build && npm run vrt:storycap && npm run vrt:compare && open ./vrt/report.html"
+    "vrt:show-report": "npm run storybook:build && npm run vrt:storycap && npm run vrt:compare && open ./vrt/report.html",
+    "generate": "ng g @ngx-storybook/schematics:c $npm_config_name"
   },
   "private": true,
   "dependencies": {
@@ -38,6 +39,7 @@
     "@angular/elements": "^13.0.2",
     "@babel/core": "^7.16.0",
     "@compodoc/compodoc": "^1.1.15",
+    "@ngx-storybook/schematics": "^1.0.5",
     "@storybook/addon-actions": "^6.4.0-rc.5",
     "@storybook/addon-essentials": "^6.4.0-rc.5",
     "@storybook/addon-links": "^6.4.0-rc.5",
@@ -51,8 +53,8 @@
     "@webcomponents/custom-elements": "^1.5.0",
     "babel-loader": "^8.2.3",
     "http-server": "^14.0.0",
-    "jest": "^27.3.1",
     "jest-preset-angular": "^11.0.0",
+    "jest": "^27.3.1",
     "reg-cli": "^0.17.4",
     "rimraf": "^3.0.2",
     "sass": "^1.43.4",
