@@ -1,0 +1,30 @@
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+li:not(:last-child) {
+  margin-bottom: var(--item-spacing);
+}
+
+$checkbox-size: 2rem;
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: $checkbox-size;
+  height: $checkbox-size;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  margin: 0 var(--item-spacing) 0 0;
+}
+
+label {
+  max-width: calc(100% - $checkbox-size - calc(var(--item-spacing) * 1.5));
+}

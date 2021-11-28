@@ -1,0 +1,31 @@
+import { Canvas, Story } from "@storybook/addon-docs";
+
+# 色
+
+<Canvas>
+  <Story id="styles-color--color"></Story>
+</Canvas>
+
+## 色の種類
+
+| 種類      | RGB     |
+| :-------- | :------ |
+| primary   | #141414 |
+| secondary | #f9f9f9 |
+| accent    | #ff2700 |
+
+## この色にした理由
+
+- 色が多いと落ち着きのない画面になるので、3 色に抑えています
+- #000000 と#ffffff を見ていると(私は)目が痛くなるので、コントラストが低くなりすぎない程度に灰色に近づけています
+- 色弱の人の中には濃い赤と黒を区別できない人がいるので、#ff2700 にしています
+
+[参考資料](https://www.fukushihoken.metro.tokyo.lg.jp/kiban/machizukuri/kanren/color.files/colorudguideline.pdf)
+
+## 色の使い方の注意点
+
+色だけで意味を伝えると、色を区別できない・しにくい場合(e.g 色弱の人が使っている、屋外で使っているので光の反射で画面が見にくい)に誤解・誤操作の原因になります。
+
+色だけではなく、書体など他の要素も合わせて用いる必要があります。
+
+[参考資料](https://a11y-guidelines.freee.co.jp/categories/text.html#gl-text-color-only)

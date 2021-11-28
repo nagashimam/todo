@@ -5,6 +5,11 @@
 /tmp
 /out-tsc
 /documentation.json
+/.storybook/css
+/storybook-static
+/vrt/report.html
+/vrt/reg.json
+/vrt/diff
 # Only exists if Bazel was run
 /bazel-out
 

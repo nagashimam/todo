@@ -1,0 +1,9 @@
+<ul *ngIf="todos.length > 0">
+  <ng-container *ngFor="let todo of todos; let i = index">
+    <li>
+      <input class="focusable" [id]="i" type="checkbox" /><label [for]="i">{{
+        todo
+      }}</label>
+    </li>
+  </ng-container>
+</ul>

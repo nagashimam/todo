@@ -1,0 +1,15 @@
+.inverted {
+  color: var(--secondary);
+  background-color: var(--primary);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+app-todo-list {
+  display: block;
+}
