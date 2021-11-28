@@ -1,1 +1,14 @@
-<p>todos works!</p>
+<div class="page">
+  <div>
+    <header>
+      <h1 class="pl-item-spacing inverted mb-group-spacing">Todo</h1>
+    </header>
+    <app-todo-list
+      class="pl-item-spacing"
+      [todos]="todos$ | async"
+    ></app-todo-list>
+  </div>
+  <footer class="pb-item-spacing pt-item-spacing pl-item-spacing inverted">
+    <a class="inverted focusable-inverted" href="https://google.com">README</a>
+  </footer>
+</div>

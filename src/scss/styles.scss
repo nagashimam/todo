@@ -80,11 +80,32 @@ h3 {
 .pr-item-spacing {
   padding-right: var(--item-spacing);
 }
+
+// 残りは順次必要になった組み合わせから追加
+.pt-item-spacing {
+  padding-top: var(--item-spacing);
+}
+.pl-item-spacing {
+  padding-left: var(--item-spacing);
+}
 // #endregion
 
 // #region color
 html {
   background-color: var(--secondary);
   color: var(--primary);
+}
+// #endregion
+
+// #region focus ring
+@mixin outline($color) {
+  outline: 4px dashed $color;
+  outline-offset: 2px;
+}
+.focusable:focus {
+  @include outline(var(--primary));
+}
+.focusable-inverted:focus {
+  @include outline(var(--secondary));
 }
 // #endregion

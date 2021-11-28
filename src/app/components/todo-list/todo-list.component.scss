@@ -28,8 +28,3 @@ input[type="checkbox"] {
 label {
   max-width: calc(100% - $checkbox-size - calc(var(--item-spacing) * 1.5));
 }
-
-input:focus {
-  outline: 4px dashed var(--primary);
-  outline-offset: 2px;
-}
