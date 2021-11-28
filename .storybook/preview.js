@@ -11,4 +11,13 @@ export const parameters = {
     },
   },
   docs: { inlineStories: true },
+  paddings: {
+    values: [
+      { name: '1rem', value: '1rem' },
+      { name: '2rem', value: '2rem' },
+      { name: '3rem', value: '3rem' },
+      { name: 'None', value: '0' },
+    ],
+    default: '1rem',
+  },
 }
