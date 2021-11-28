@@ -57,7 +57,7 @@ export const TabEnterAndTabThreeTimes = {
 };
 
 export const TabEnterAndAdd = {
-  storyName: 'タブ + エンター + 追加',
+  storyName: '6.タブ + エンター + 追加',
   play: () => {
     TabAndEnter.play();
     userEvent.click(screen.getByText('追加'));
@@ -65,7 +65,7 @@ export const TabEnterAndAdd = {
 };
 
 export const TabEnterAndCancel = {
-  storyName: 'タブ + エンター + キャンセル',
+  storyName: '6.タブ + エンター + キャンセル',
   play: () => {
     TabAndEnter.play();
     userEvent.click(screen.getByText('キャンセル'));

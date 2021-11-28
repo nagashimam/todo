@@ -12,7 +12,7 @@
     "storybook:prep": "npm run storybook:docs && npm run storybook:scss",
     "storybook:start": "npm run storybook:prep && start-storybook -s ./.storybook/css -p 6006",
     "storybook:build": "npm run storybook:prep && build-storybook -s ./.storybook/css -o docs",
-    "vrt:storycap": "storycap --serverCmd 'npx http-server storybook-static -p 9001' http://localhost:9001 -o vrt/actual",
+    "vrt:storycap": "storycap --serverCmd 'npx http-server docs -p 9001' http://localhost:9001 -o vrt/actual",
     "vrt:compare": "reg-cli ./vrt/actual ./vrt/expected ./vrt/diff -R ./vrt/report.html -J ./vrt/reg.json",
     "vrt:update": "reg-cli ./vrt/actual ./vrt/expected ./vrt/diff -U -J ./vrt/reg.json",
     "vrt:show-report": "npm run storybook:build && npm run vrt:storycap && npm run vrt:compare && open ./vrt/report.html",
