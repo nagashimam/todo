@@ -10,4 +10,6 @@ export class TodosService {
   getTodos$(): Observable<string[]> {
     throw new Error('Method not implemented.');
   }
+
+  async addTodo(todo: string): Promise<void> {}
 }

@@ -60,12 +60,21 @@ export const TabToChecklistCase = {
   play: Tab.play,
 };
 
-export const TabToLinkCase = {
-  storyName: 'タブ押下後_リンク',
+export const TabToButtonCase = {
+  storyName: 'タブ押下後_ボタン',
   decorators: [moduleMetadata(module(Tab.args.todos))],
   play: () => {
     Tab.play();
     Tab.play();
+    Tab.play();
+  },
+};
+
+export const TabToLinkCase = {
+  storyName: 'タブ押下後_リンク',
+  decorators: [moduleMetadata(module(Tab.args.todos))],
+  play: () => {
+    TabToButtonCase.play();
     Tab.play();
   },
 };

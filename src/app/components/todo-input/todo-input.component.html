@@ -1,7 +1,13 @@
-<div class="pl-item-spacing">
+<div>
   <div *ngIf="typing" class="text-field">
-    <label class="mb-item-spacing">Todoを入力してください</label>
-    <textarea id="story" class="focusable mb-item-spacing" rows="5"> </textarea>
+    <label class="mb-item-spacing" for="textarea">Todoを入力してください</label>
+    <textarea
+      #textArea
+      id="textarea"
+      class="focusable mb-item-spacing"
+      rows="5"
+      value=""
+    ></textarea>
     <div>
       <button
         class="focusable box-button inverted mr-item-spacing"

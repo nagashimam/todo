@@ -8,8 +8,12 @@
       [todos]="todos$ | async"
     ></app-todo-list>
     <div class="pl-item-spacing">
-      <button aria-labelledby="button-label" type="button">+</button>
-      <span id="button-label">Todoを追加する</span>
+      <app-todo-input
+        [typing]="typing"
+        (typingStarted)="typing = true"
+        (added)="addTodo($value)"
+        (canceled)="typing = false"
+      ></app-todo-input>
     </div>
   </div>
   <footer class="pb-item-spacing pt-item-spacing pl-item-spacing inverted">

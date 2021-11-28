@@ -1,73 +1,60 @@
 import { TodoInputComponent } from './todo-input.component';
 import userEvent from '@testing-library/user-event';
-import { screen } from '@testing-library/angular';
+
 export default {
   title: 'components/todo-input',
   component: TodoInputComponent,
 };
 
 export const InitialDisplay = {
-  storyName: '0.初期表示',
+  storyName: '1.初期表示',
+  args: {
+    typing: false,
+  },
 };
-
 export const Tab = {
-  storyName: '1.タブ',
+  storyName: '1-1.タブ',
+  args: InitialDisplay.args,
   play: () => {
     userEvent.tab();
   },
 };
 
-export const ClickLabel = {
-  storyName: '2.ラベルをクリック',
-  play: () => {
-    userEvent.click(screen.getByText('Todoを追加する'));
+export const TypingStarted = {
+  storyName: '2.タイピング中',
+  args: {
+    typing: true,
   },
 };
-
-export const TabAndEnter = {
-  storyName: '2.タブ + エンター',
+export const TypingStartedAndTabOnce = {
+  storyName: '2-1-1.タブ(1回)',
+  args: TypingStarted.args,
   play: () => {
-    Tab.play();
-    userEvent.keyboard('{Enter}');
-  },
-};
-
-export const TabEnterAndTab = {
-  storyName: '3.タブ + エンター + タブ(1回)',
-  play: () => {
-    TabAndEnter.play();
     userEvent.tab();
   },
 };
-
-export const TabEnterAndTabTwice = {
-  storyName: '4.タブ + エンター + タブ(2回)',
+export const TypingStartedAndTabTwice = {
+  storyName: '2-1-2.タブ(2回)',
+  args: TypingStarted.args,
   play: () => {
-    TabEnterAndTab.play();
+    userEvent.tab();
     userEvent.tab();
   },
 };
-
-export const TabEnterAndTabThreeTimes = {
-  storyName: '5.タブ + エンター + タブ(3回)',
+export const TypingStartedAndTabThreeTimes = {
+  storyName: '2-1-3.タブ(3回)',
+  args: TypingStarted.args,
   play: () => {
-    TabEnterAndTabTwice.play();
+    userEvent.tab();
+    userEvent.tab();
     userEvent.tab();
   },
 };
-
-export const TabEnterAndAdd = {
-  storyName: '6.タブ + エンター + 追加',
+export const TypingStartedTabAndEnter = {
+  storyName: '2-2.入力',
+  args: TypingStarted.args,
   play: () => {
-    TabAndEnter.play();
-    userEvent.click(screen.getByText('追加'));
-  },
-};
-
-export const TabEnterAndCancel = {
-  storyName: '6.タブ + エンター + キャンセル',
-  play: () => {
-    TabAndEnter.play();
-    userEvent.click(screen.getByText('キャンセル'));
+    TypingStartedAndTabOnce.play();
+    userEvent.keyboard('aiuoe{Enter}kakikukeko');
   },
 };

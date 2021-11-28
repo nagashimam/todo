@@ -8,11 +8,17 @@ import { TodosService } from '../services/todos/todos.service';
   styleUrls: ['./todos.component.scss'],
 })
 export class TodosComponent implements OnInit {
+  typing = false;
   todos$: Observable<string[]> | null = null;
 
   constructor(private todosService: TodosService) {}
 
   ngOnInit(): void {
     this.todos$ = this.todosService.getTodos$();
+  }
+
+  addTodo(todo: string) {
+    this.typing = false;
+    this.todosService.addTodo(todo);
   }
 }
