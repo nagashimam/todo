@@ -1,0 +1,32 @@
+<div class="pl-item-spacing">
+  <div *ngIf="typing" class="text-field">
+    <label class="mb-item-spacing">Todoを入力してください</label>
+    <textarea id="story" class="focusable mb-item-spacing" rows="5"> </textarea>
+    <div>
+      <button
+        class="focusable box-button inverted mr-item-spacing"
+        type="button"
+        (click)="add()"
+      >
+        追加
+      </button>
+      <button
+        class="focusable box-button normal"
+        type="button"
+        (click)="cancel()"
+      >
+        キャンセル
+      </button>
+    </div>
+  </div>
+  <div *ngIf="!typing" (click)="startTyping()">
+    <button
+      class="focusable rounded-button"
+      aria-labelledby="button-label"
+      type="button"
+    >
+      +
+    </button>
+    <span id="button-label">Todoを追加する</span>
+  </div>
+</div>
