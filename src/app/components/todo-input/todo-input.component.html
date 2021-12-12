@@ -1,17 +1,20 @@
 <div>
-  <div *ngIf="typing" class="text-field">
-    <label class="mb-item-spacing" for="textarea">Todoを入力してください</label>
+  <form *ngIf="typing" class="text-field">
+    <label #label class="mb-item-spacing" for="textarea"
+      >Todoを入力してください</label
+    >
     <textarea
       #textArea
+      name="todo"
       id="textarea"
       class="focusable mb-item-spacing"
       rows="5"
-      value=""
+      [(ngModel)]="todo"
     ></textarea>
     <div>
       <button
         class="focusable box-button inverted mr-item-spacing"
-        type="button"
+        type="submit"
         (click)="add()"
       >
         追加
@@ -24,7 +27,7 @@
         キャンセル
       </button>
     </div>
-  </div>
+  </form>
   <div *ngIf="!typing" (click)="startTyping()">
     <button
       class="focusable rounded-button"

@@ -1,18 +1,17 @@
 module.exports = {
-  "stories": [
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
-  ],
-  "addons": [
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "storybook-addon-paddings"
+    "storybook-addon-paddings",
+    "@storybook/addon-interactions",
   ],
-  "framework": "@storybook/angular",
-  "core": {
-    "builder": "webpack5"
+  framework: "@storybook/angular",
+  core: {
+    builder: "webpack5",
   },
-  "features": {
-    "previewCsfV3": true,
-  }
-}
+  features: {
+    previewCsfV3: true,
+    interactionsDebugger: true,
+  },
+};

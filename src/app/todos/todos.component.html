@@ -5,13 +5,13 @@
     </header>
     <app-todo-list
       class="pl-item-spacing mb-group-spacing"
-      [todos]="todos$ | async"
+      [todos]="todos"
     ></app-todo-list>
     <div class="pl-item-spacing">
       <app-todo-input
         [typing]="typing"
         (typingStarted)="typing = true"
-        (added)="addTodo($value)"
+        (added)="addTodo($event)"
         (canceled)="typing = false"
       ></app-todo-input>
     </div>

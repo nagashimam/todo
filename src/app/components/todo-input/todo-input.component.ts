@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
@@ -14,21 +15,28 @@ import {
   styleUrls: ['./todo-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TodoInputComponent {
+export class TodoInputComponent implements AfterViewChecked {
   @Input() typing = false;
   @Output() typingStarted = new EventEmitter<void>();
   @Output() added = new EventEmitter<string>();
   @Output() canceled = new EventEmitter<void>();
-  @ViewChild('textArea') textAreaRef: ElementRef | null = null;
+  @ViewChild('label') labelRef?: ElementRef;
+  todo = '';
+
+  ngAfterViewChecked(): void {
+    if (this.labelRef) {
+      this.labelRef.nativeElement.focus();
+    }
+  }
 
   startTyping() {
     this.typingStarted.emit();
   }
 
   add() {
-    if (this.textAreaRef) {
-      const value = this.textAreaRef.nativeElement.value;
-      this.added.emit(value);
+    if (this.todo) {
+      console.log('todo', this.todo);
+      this.added.emit(this.todo);
     } else {
       this.cancel();
     }

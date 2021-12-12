@@ -10,7 +10,7 @@ describe('TodoInputComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ TodoInputComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

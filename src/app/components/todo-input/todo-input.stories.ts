@@ -1,60 +1,76 @@
 import { TodoInputComponent } from './todo-input.component';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@storybook/testing-library';
+import { Args, StoryAnnotations, StoryContext } from '@storybook/csf';
+import { AngularFramework, Meta } from '@storybook/angular';
 
 export default {
   title: 'components/todo-input',
   component: TodoInputComponent,
-};
+} as Meta;
 
-export const InitialDisplay = {
-  storyName: '1.初期表示',
+export const InitialDisplay: StoryAnnotations<
+  AngularFramework,
+  TodoInputComponent
+> = {
+  storyName: '初期表示',
   args: {
     typing: false,
   },
 };
-export const Tab = {
-  storyName: '1-1.タブ',
+
+export const Tab: StoryAnnotations<AngularFramework, Args> = {
+  storyName: '初期表示_タブ',
   args: InitialDisplay.args,
-  play: () => {
-    userEvent.tab();
+  play: async () => {
+    await userEvent.tab();
   },
 };
 
-export const TypingStarted = {
-  storyName: '2.タイピング中',
+export const TypingStarted: StoryAnnotations<
+  AngularFramework,
+  TodoInputComponent
+> = {
+  storyName: 'タイピング中',
   args: {
     typing: true,
   },
 };
-export const TypingStartedAndTabOnce = {
-  storyName: '2-1-1.タブ(1回)',
+
+export const TypingStartedTabAndInput: StoryAnnotations<
+  AngularFramework,
+  Args
+> = {
+  storyName: 'タイピング中_入力',
   args: TypingStarted.args,
-  play: () => {
-    userEvent.tab();
+  play: async () => {
+    await userEvent.keyboard('aiuoe{Enter}kakikukeko');
   },
 };
-export const TypingStartedAndTabTwice = {
-  storyName: '2-1-2.タブ(2回)',
+
+export const TypingStartedAndTabOnce: StoryAnnotations<
+  AngularFramework,
+  TodoInputComponent
+> = {
+  storyName: 'タイピング中_タブ(1回)',
   args: TypingStarted.args,
-  play: () => {
-    userEvent.tab();
-    userEvent.tab();
+  play: async (context: StoryContext<AngularFramework, TodoInputComponent>) => {
+    if (TypingStartedTabAndInput.play) {
+      await TypingStartedTabAndInput.play(context);
+    }
+    await userEvent.tab();
   },
 };
-export const TypingStartedAndTabThreeTimes = {
-  storyName: '2-1-3.タブ(3回)',
+export const TypingStartedAndTabTwice: StoryAnnotations<
+  AngularFramework,
+  TodoInputComponent
+> = {
+  storyName: 'タイピング中_タブ(2回)',
   args: TypingStarted.args,
-  play: () => {
-    userEvent.tab();
-    userEvent.tab();
-    userEvent.tab();
-  },
-};
-export const TypingStartedTabAndEnter = {
-  storyName: '2-2.入力',
-  args: TypingStarted.args,
-  play: () => {
-    TypingStartedAndTabOnce.play();
-    userEvent.keyboard('aiuoe{Enter}kakikukeko');
+  play: async (context: StoryContext<AngularFramework, TodoInputComponent>) => {
+    if (TypingStartedTabAndInput.play) {
+      await TypingStartedTabAndInput.play(context);
+    }
+    await userEvent.tab();
+    await userEvent.tab();
   },
 };
