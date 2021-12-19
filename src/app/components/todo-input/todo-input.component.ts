@@ -1,6 +1,5 @@
 import {
   AfterViewChecked,
-  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -13,7 +12,6 @@ import {
   selector: 'app-todo-input',
   templateUrl: './todo-input.component.html',
   styleUrls: ['./todo-input.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoInputComponent implements AfterViewChecked {
   @Input() typing = false;
