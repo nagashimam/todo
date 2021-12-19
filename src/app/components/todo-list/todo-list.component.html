@@ -1,4 +1,4 @@
-<ul *ngIf="todos?.length > 0">
+<ul *ngIf="todos && todos.length > 0">
   <ng-container *ngFor="let todo of todos; let i = index">
     <li>
       <input class="focusable" [id]="i" type="checkbox" /><label [for]="i">{{
