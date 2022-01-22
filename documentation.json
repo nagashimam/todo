@@ -1,0 +1,1404 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [
+        {
+            "name": "TodosService",
+            "id": "injectable-TodosService-6d554d4e438e4ea2610a8b0c19374bdd",
+            "file": "src/app/services/todos/todos.service.ts",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "fetchTodos",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<void>",
+                    "typeParameters": [],
+                    "line": 8,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        130
+                    ]
+                },
+                {
+                    "name": "getTodos$",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Observable<string[]>",
+                    "typeParameters": [],
+                    "line": 10,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport { Observable } from 'rxjs';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class TodosService {\n  async fetchTodos(): Promise<void> {}\n\n  getTodos$(): Observable<string[]> {\n    throw new Error('Method not implemented.');\n  }\n}\n",
+            "type": "injectable"
+        }
+    ],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-f59e8135edd4d86cf37df2da298ba405",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [
+                "./app.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "'todo'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {\n  title = 'todo';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./app.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<router-outlet></router-outlet>\n"
+        },
+        {
+            "name": "TodoListComponent",
+            "id": "component-TodoListComponent-7b0c69401ccf555d382655a1330bfbe9",
+            "file": "src/app/components/todo-list/todo-list.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-todo-list",
+            "styleUrls": [
+                "./todo-list.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./todo-list.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "todos",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "todoリストの項目の配列",
+                    "description": "<p>todoリストの項目の配列</p>\n",
+                    "line": 13,
+                    "type": "string[]"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-todo-list',\n  templateUrl: './todo-list.component.html',\n  styleUrls: ['./todo-list.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class TodoListComponent {\n  /**\n   * todoリストの項目の配列\n   */\n  @Input() todos: string[] = [];\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "ul {\n  margin: 0;\n  padding: 0;\n}\n\nli {\n  list-style-type: none;\n  display: flex;\n  align-items: center;\n}\nli:not(:last-child) {\n  margin-bottom: var(--item-spacing);\n}\n\n$checkbox-size: 2rem;\ninput[type=\"checkbox\"] {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n\n  width: $checkbox-size;\n  height: $checkbox-size;\n  border: 2px solid var(--primary);\n  border-radius: 50%;\n  margin: 0 var(--item-spacing) 0 0;\n}\n\nlabel {\n  max-width: calc(100% - $checkbox-size - calc(var(--item-spacing) * 1.5));\n}\n",
+                    "styleUrl": "./todo-list.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<ul *ngIf=\"todos.length > 0\">\n  <ng-container *ngFor=\"let todo of todos; let i = index\">\n    <li>\n      <input class=\"focusable\" [id]=\"i\" type=\"checkbox\" /><label [for]=\"i\">{{\n        todo\n      }}</label>\n    </li>\n  </ng-container>\n</ul>\n"
+        },
+        {
+            "name": "TodosComponent",
+            "id": "component-TodosComponent-8f8cb224397e83800b6ccb158aef5226",
+            "file": "src/app/todos/todos.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-todos",
+            "styleUrls": [
+                "./todos.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./todos.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "todos$",
+                    "defaultValue": "null",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<string[]> | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { TodosService } from '../services/todos/todos.service';\n\n@Component({\n  selector: 'app-todos',\n  templateUrl: './todos.component.html',\n  styleUrls: ['./todos.component.scss'],\n})\nexport class TodosComponent implements OnInit {\n  todos$: Observable<string[]> | null = null;\n\n  constructor(private todosService: TodosService) {}\n\n  ngOnInit(): void {\n    this.todos$ = this.todosService.getTodos$();\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".inverted {\n  color: var(--secondary);\n  background-color: var(--primary);\n}\n\n.page {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  height: 100%;\n}\n\napp-todo-list {\n  display: block;\n}\n",
+                    "styleUrl": "./todos.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "todosService",
+                        "type": "TodosService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 11,
+                "jsdoctags": [
+                    {
+                        "name": "todosService",
+                        "type": "TodosService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"page\">\n  <div>\n    <header>\n      <h1 class=\"pl-item-spacing inverted mb-group-spacing\">Todo</h1>\n    </header>\n    <app-todo-list\n      class=\"pl-item-spacing\"\n      [todos]=\"todos$ | async\"\n    ></app-todo-list>\n  </div>\n  <footer class=\"pb-item-spacing pt-item-spacing pl-item-spacing inverted\">\n    <a class=\"inverted focusable-inverted\" href=\"https://google.com\">README</a>\n  </footer>\n</div>\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AppModule",
+            "id": "module-AppModule-2ddabceff5cee1a2a9d0cd5c2c7b567f",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/app.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\n\n@NgModule({\n  declarations: [AppComponent],\n  imports: [BrowserModule, AppRoutingModule],\n  providers: [],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AppRoutingModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AppRoutingModule",
+            "id": "module-AppRoutingModule-40381f46239cb3b4f78a4dbfbad980c1",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/app-routing.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { PreloadAllModules, RouterModule, Routes } from '@angular/router';\n\nconst routes: Routes = [\n  {\n    path: '',\n    redirectTo: 'todos',\n    pathMatch: 'full',\n  },\n  {\n    path: 'todos',\n    loadChildren: () =>\n      \"import('./todos/todos-routing.module').then((m) => m.TodosRoutingModule)\",\n  },\n  { path: '**', redirectTo: 'todos' },\n];\n\n@NgModule({\n  imports: [\n    RouterModule.forRoot(routes, {\n      preloadingStrategy: PreloadAllModules,\n    }),\n  ],\n  exports: [RouterModule],\n})\nexport class AppRoutingModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "TodoListModule",
+            "id": "module-TodoListModule-b4c7d768bf46089538f06868ce1742c9",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/components/todo-list/todo-list.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TodoListComponent } from './todo-list.component';\n\n@NgModule({\n  declarations: [TodoListComponent],\n  exports: [TodoListComponent],\n  imports: [CommonModule],\n})\nexport class TodoListModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "TodoListComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "TodoListComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "TodosModule",
+            "id": "module-TodosModule-6bded4908eff8c17ced4a9fd274d42cf",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/todos/todos.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TodosComponent } from './todos.component';\nimport { TodoListModule } from '../components/todo-list/todo-list.module';\n@NgModule({\n  declarations: [TodosComponent],\n  exports: [TodosComponent],\n  imports: [CommonModule, TodoListModule],\n})\nexport class TodosModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "TodosComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "TodoListModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "TodosComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "TodosRoutingModule",
+            "id": "module-TodosRoutingModule-7610693070598e474c1b0678ed88916d",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/todos/todos-routing.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\nimport { TodosComponent } from './todos.component';\nimport { TodosModule } from './todos.module';\n\nconst routes: Routes = [\n  {\n    path: '',\n    component: TodosComponent,\n  },\n];\n\n@NgModule({\n  imports: [RouterModule.forChild(routes), TodosModule],\n})\nexport class TodosRoutingModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "TodosModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "color",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/styles/color.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Color.bind({})"
+            },
+            {
+                "name": "Color",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/styles/color.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args: any) => ({\n  props: Object.keys(args),\n  template: `\n      <h2>primary</h2>\n      <h2 style=\"background-color:var(--primary); color:var(--secondary)\">secondary</h2>\n      <h2 style=\"color:var(--accent)\">accent</h2>\n    `\n})"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "heading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/styles/spacing.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Spacing.bind({})"
+            },
+            {
+                "name": "heading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/styles/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Heading.bind({})"
+            },
+            {
+                "name": "Heading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/styles/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args: any) => ({\n  props: Object.keys(args),\n  template: `\n      <h1>見出しレベル1</h1>\n      <h2>見出しレベル2</h2>\n      <h3>見出しレベル3</h3>\n    `\n})"
+            },
+            {
+                "name": "important",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/styles/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Important.bind({})"
+            },
+            {
+                "name": "Important",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/styles/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args:any) => ({\n  props: Object.keys(args),\n  template: `\n    <p>特に<span class=\"important\">重要</span>なことを<span class=\"important\">強調</span>したい場合に文字の色とサイズを変更する</p>\n  `\n})"
+            },
+            {
+                "name": "LongTodo",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/todo-list/todo-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  args: {\n    todos: [\n      'パン',\n      '卵',\n      'エクストラバニラエクストラキャラメルエクストラヘーゼルナッツエクストラクラシックエクストラチャイフラペチーノ',\n    ],\n  },\n  storyName: '長い文字',\n}"
+            },
+            {
+                "name": "LongTodoCase",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/todos/todos.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  storyName: LongTodo.storyName,\n  decorators: [moduleMetadata(module(LongTodo.args.todos))],\n}"
+            },
+            {
+                "name": "MarginCheck",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/todo-list/todo-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "MarginCheckTemplate.bind({})"
+            },
+            {
+                "name": "MarginCheckTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/todo-list/todo-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<TodoListComponent>",
+                "defaultValue": "(args) => ({\n  props: args,\n  template: `\n    <p>リストの上下にマージンはない</p>\n    <div style=\"height:0.5rem;background-color:var(--primary)\"></div>\n    <app-todo-list [todos]=\"todos\"></app-todo-list>\n    <div style=\"height:0.5rem;background-color:var(--primary)\"></div>\n  `,\n})"
+            },
+            {
+                "name": "module",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/todos/todos.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<NgModuleMetadata>",
+                "defaultValue": "(todos) => ({\n  imports: [TodosModule],\n  providers: [\n    {\n      provide: TodosService,\n      useValue: {\n        getTodos$: () => of(todos),\n      },\n    },\n  ],\n})"
+            },
+            {
+                "name": "NoTodo",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/todo-list/todo-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  storyName: '1つもない',\n  args: {\n    todos: [],\n  },\n}"
+            },
+            {
+                "name": "NoTodoCase",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/todos/todos.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  storyName: NoTodo.storyName,\n  decorators: [moduleMetadata(module(NoTodo.args.todos))],\n}"
+            },
+            {
+                "name": "OneTodo",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/todo-list/todo-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  args: {\n    todos: ['パン'],\n  },\n  storyName: '1つ',\n}"
+            },
+            {
+                "name": "OneTodoCase",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/todos/todos.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  storyName: OneTodo.storyName,\n  decorators: [moduleMetadata(module(OneTodo.args.todos))],\n}"
+            },
+            {
+                "name": "others",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/styles/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Others.bind({})"
+            },
+            {
+                "name": "Others",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/styles/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args: any) => ({\n  props: Object.keys(args),\n  template: `\n      <div class=\"mb-item-spacing\">\n        <label class=\"mr-item-spacing\" for=\"text-input\">入力欄のラベル</label><input id=\"text-input\" type=\"text\">\n      </div>\n      <span>何か簡単な短文</span>\n    `\n})"
+            },
+            {
+                "name": "paragraph",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/styles/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Paragraph.bind({})"
+            },
+            {
+                "name": "Paragraph",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/styles/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args: any) => ({\n  props: Object.keys(args),\n  template: `\n      <p>学習用のToDoアプリです。色々やってみたいことがあり、試しに作っただけのものです。お試しで使っていただいても構いませんが、動作保証はできません。</p>\n      <p>開発が一定程度進んでから、アクセシビリティ試験を行い、結果を公表する予定です。</p>\n    `\n})"
+            },
+            {
+                "name": "Spacing",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/styles/spacing.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args: any) => ({\n    props: Object.keys(args),\n    template: `\n      <section>\n        <h2>Group1</h2>\n        <ul style=\"margin:0px;\">\n          <li>item1</li>\n          <div style=\"background-color:#ff2700;padding-bottom:var(--item-spacing);\"></div>\n          <li>item2</li>\n        </ul>\n        <div style=\"background-color:#ff2700;padding-bottom:var(--group-spacing);\"></div>\n      </section>\n      <section>\n        <h2>Group2</h2>\n        <ul style=\"margin:0px;\">\n          <li>item1</li>\n          <div style=\"background-color:#ff2700;padding-bottom:var(--item-spacing);\"></div>\n          <li>item2</li>\n        </ul>\n        <div style=\"background-color:#ff2700;padding-bottom:var(--group-spacing);\"></div>\n      </section>\n      <div style=\"background-color:#ff2700;padding-bottom:var(--section-spacing);\"></div>\n      <button>ボタン</button>\n    `\n})"
+            },
+            {
+                "name": "Tab",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/todo-list/todo-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  args: TwoTodo.args,\n  storyName: 'タブ押下後',\n  play: () => {\n    userEvent.tab();\n  },\n}"
+            },
+            {
+                "name": "TabToChecklistCase",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/todos/todos.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  storyName: 'タブ押下後_チェックリスト',\n  decorators: [moduleMetadata(module(Tab.args.todos))],\n  play: Tab.play,\n}"
+            },
+            {
+                "name": "TabToLinkCase",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/todos/todos.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  storyName: 'タブ押下後_リンク',\n  decorators: [moduleMetadata(module(Tab.args.todos))],\n  play: () => {\n    Tab.play();\n    Tab.play();\n    Tab.play();\n  },\n}"
+            },
+            {
+                "name": "TwoTodo",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/todo-list/todo-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  args: {\n    todos: ['パン', '卵'],\n  },\n  storyName: '2つ',\n}"
+            },
+            {
+                "name": "TwoTodoCase",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/todos/todos.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  storyName: TwoTodo.storyName,\n  decorators: [moduleMetadata(module(TwoTodo.args.todos))],\n}"
+            }
+        ],
+        "functions": [],
+        "typealiases": [],
+        "enumerations": [],
+        "groupedVariables": {
+            "src/app/styles/color.stories.ts": [
+                {
+                    "name": "color",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/styles/color.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Color.bind({})"
+                },
+                {
+                    "name": "Color",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/styles/color.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<any>",
+                    "defaultValue": "(args: any) => ({\n  props: Object.keys(args),\n  template: `\n      <h2>primary</h2>\n      <h2 style=\"background-color:var(--primary); color:var(--secondary)\">secondary</h2>\n      <h2 style=\"color:var(--accent)\">accent</h2>\n    `\n})"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/app/styles/spacing.stories.ts": [
+                {
+                    "name": "heading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/styles/spacing.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Spacing.bind({})"
+                },
+                {
+                    "name": "Spacing",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/styles/spacing.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<any>",
+                    "defaultValue": "(args: any) => ({\n    props: Object.keys(args),\n    template: `\n      <section>\n        <h2>Group1</h2>\n        <ul style=\"margin:0px;\">\n          <li>item1</li>\n          <div style=\"background-color:#ff2700;padding-bottom:var(--item-spacing);\"></div>\n          <li>item2</li>\n        </ul>\n        <div style=\"background-color:#ff2700;padding-bottom:var(--group-spacing);\"></div>\n      </section>\n      <section>\n        <h2>Group2</h2>\n        <ul style=\"margin:0px;\">\n          <li>item1</li>\n          <div style=\"background-color:#ff2700;padding-bottom:var(--item-spacing);\"></div>\n          <li>item2</li>\n        </ul>\n        <div style=\"background-color:#ff2700;padding-bottom:var(--group-spacing);\"></div>\n      </section>\n      <div style=\"background-color:#ff2700;padding-bottom:var(--section-spacing);\"></div>\n      <button>ボタン</button>\n    `\n})"
+                }
+            ],
+            "src/app/styles/typography.stories.ts": [
+                {
+                    "name": "heading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/styles/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Heading.bind({})"
+                },
+                {
+                    "name": "Heading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/styles/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<any>",
+                    "defaultValue": "(args: any) => ({\n  props: Object.keys(args),\n  template: `\n      <h1>見出しレベル1</h1>\n      <h2>見出しレベル2</h2>\n      <h3>見出しレベル3</h3>\n    `\n})"
+                },
+                {
+                    "name": "important",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/styles/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Important.bind({})"
+                },
+                {
+                    "name": "Important",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/styles/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<any>",
+                    "defaultValue": "(args:any) => ({\n  props: Object.keys(args),\n  template: `\n    <p>特に<span class=\"important\">重要</span>なことを<span class=\"important\">強調</span>したい場合に文字の色とサイズを変更する</p>\n  `\n})"
+                },
+                {
+                    "name": "others",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/styles/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Others.bind({})"
+                },
+                {
+                    "name": "Others",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/styles/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<any>",
+                    "defaultValue": "(args: any) => ({\n  props: Object.keys(args),\n  template: `\n      <div class=\"mb-item-spacing\">\n        <label class=\"mr-item-spacing\" for=\"text-input\">入力欄のラベル</label><input id=\"text-input\" type=\"text\">\n      </div>\n      <span>何か簡単な短文</span>\n    `\n})"
+                },
+                {
+                    "name": "paragraph",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/styles/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Paragraph.bind({})"
+                },
+                {
+                    "name": "Paragraph",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/styles/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<any>",
+                    "defaultValue": "(args: any) => ({\n  props: Object.keys(args),\n  template: `\n      <p>学習用のToDoアプリです。色々やってみたいことがあり、試しに作っただけのものです。お試しで使っていただいても構いませんが、動作保証はできません。</p>\n      <p>開発が一定程度進んでから、アクセシビリティ試験を行い、結果を公表する予定です。</p>\n    `\n})"
+                }
+            ],
+            "src/app/components/todo-list/todo-list.stories.ts": [
+                {
+                    "name": "LongTodo",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/todo-list/todo-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  args: {\n    todos: [\n      'パン',\n      '卵',\n      'エクストラバニラエクストラキャラメルエクストラヘーゼルナッツエクストラクラシックエクストラチャイフラペチーノ',\n    ],\n  },\n  storyName: '長い文字',\n}"
+                },
+                {
+                    "name": "MarginCheck",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/todo-list/todo-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "MarginCheckTemplate.bind({})"
+                },
+                {
+                    "name": "MarginCheckTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/todo-list/todo-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<TodoListComponent>",
+                    "defaultValue": "(args) => ({\n  props: args,\n  template: `\n    <p>リストの上下にマージンはない</p>\n    <div style=\"height:0.5rem;background-color:var(--primary)\"></div>\n    <app-todo-list [todos]=\"todos\"></app-todo-list>\n    <div style=\"height:0.5rem;background-color:var(--primary)\"></div>\n  `,\n})"
+                },
+                {
+                    "name": "NoTodo",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/todo-list/todo-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  storyName: '1つもない',\n  args: {\n    todos: [],\n  },\n}"
+                },
+                {
+                    "name": "OneTodo",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/todo-list/todo-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  args: {\n    todos: ['パン'],\n  },\n  storyName: '1つ',\n}"
+                },
+                {
+                    "name": "Tab",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/todo-list/todo-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  args: TwoTodo.args,\n  storyName: 'タブ押下後',\n  play: () => {\n    userEvent.tab();\n  },\n}"
+                },
+                {
+                    "name": "TwoTodo",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/todo-list/todo-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  args: {\n    todos: ['パン', '卵'],\n  },\n  storyName: '2つ',\n}"
+                }
+            ],
+            "src/app/todos/todos.stories.ts": [
+                {
+                    "name": "LongTodoCase",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/todos/todos.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  storyName: LongTodo.storyName,\n  decorators: [moduleMetadata(module(LongTodo.args.todos))],\n}"
+                },
+                {
+                    "name": "module",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/todos/todos.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<NgModuleMetadata>",
+                    "defaultValue": "(todos) => ({\n  imports: [TodosModule],\n  providers: [\n    {\n      provide: TodosService,\n      useValue: {\n        getTodos$: () => of(todos),\n      },\n    },\n  ],\n})"
+                },
+                {
+                    "name": "NoTodoCase",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/todos/todos.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  storyName: NoTodo.storyName,\n  decorators: [moduleMetadata(module(NoTodo.args.todos))],\n}"
+                },
+                {
+                    "name": "OneTodoCase",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/todos/todos.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  storyName: OneTodo.storyName,\n  decorators: [moduleMetadata(module(OneTodo.args.todos))],\n}"
+                },
+                {
+                    "name": "TabToChecklistCase",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/todos/todos.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  storyName: 'タブ押下後_チェックリスト',\n  decorators: [moduleMetadata(module(Tab.args.todos))],\n  play: Tab.play,\n}"
+                },
+                {
+                    "name": "TabToLinkCase",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/todos/todos.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  storyName: 'タブ押下後_リンク',\n  decorators: [moduleMetadata(module(Tab.args.todos))],\n  play: () => {\n    Tab.play();\n    Tab.play();\n    Tab.play();\n  },\n}"
+                },
+                {
+                    "name": "TwoTodoCase",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/todos/todos.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  storyName: TwoTodo.storyName,\n  decorators: [moduleMetadata(module(TwoTodo.args.todos))],\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {}
+    },
+    "routes": {
+        "name": "<root>",
+        "kind": "module",
+        "className": "AppModule",
+        "children": [
+            {
+                "name": "routes",
+                "filename": "src/app/app-routing.module.ts",
+                "module": "AppRoutingModule",
+                "children": [
+                    {
+                        "path": "",
+                        "redirectTo": "todos",
+                        "pathMatch": "full"
+                    },
+                    {
+                        "path": "todos",
+                        "loadChildren": "./todos/todos-routing.module#TodosRoutingModule",
+                        "children": [
+                            {
+                                "kind": "module",
+                                "children": [],
+                                "module": "TodosRoutingModule"
+                            }
+                        ]
+                    },
+                    {
+                        "path": "**",
+                        "redirectTo": "todos"
+                    }
+                ],
+                "kind": "module"
+            }
+        ]
+    },
+    "coverage": {
+        "count": 1,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/todo-list/todo-list.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TodoListComponent",
+                "coveragePercent": 50,
+                "coverageCount": "1/2",
+                "status": "medium"
+            },
+            {
+                "filePath": "src/app/components/todo-list/todo-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LongTodo",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/todo-list/todo-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "MarginCheck",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/todo-list/todo-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "MarginCheckTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/todo-list/todo-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "NoTodo",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/todo-list/todo-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "OneTodo",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/todo-list/todo-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Tab",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/todo-list/todo-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TwoTodo",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/services/todos/todos.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "TodosService",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/styles/color.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "color",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/styles/color.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Color",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/styles/spacing.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "heading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/styles/spacing.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Spacing",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/styles/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "heading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/styles/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Heading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/styles/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "important",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/styles/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Important",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/styles/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "others",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/styles/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Others",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/styles/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "paragraph",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/styles/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Paragraph",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/todos/todos.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TodosComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/todos/todos.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LongTodoCase",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/todos/todos.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "module",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/todos/todos.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "NoTodoCase",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/todos/todos.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "OneTodoCase",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/todos/todos.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TabToChecklistCase",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/todos/todos.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TabToLinkCase",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/todos/todos.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TwoTodoCase",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.prod.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}
