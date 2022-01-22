@@ -1,0 +1,22 @@
+.rounded-button {
+  $button-size: 2rem;
+  width: $button-size;
+  height: $button-size;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  background-color: var(--secondary);
+  margin: 0 var(--item-spacing) 0 0;
+}
+
+.box-button {
+  height: 3rem;
+  padding: 1rem;
+  align-items: center;
+  display: inline-flex;
+  border: solid var(--primary) 1px;
+}
+
+.text-field {
+  display: flex;
+  flex-direction: column;
+}

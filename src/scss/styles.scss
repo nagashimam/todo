@@ -95,6 +95,14 @@ html {
   background-color: var(--secondary);
   color: var(--primary);
 }
+.normal {
+  color: var(--primary);
+  background-color: var(--secondary);
+}
+.inverted {
+  color: var(--secondary);
+  background-color: var(--primary);
+}
 // #endregion
 
 // #region focus ring

@@ -4,9 +4,17 @@
       <h1 class="pl-item-spacing inverted mb-group-spacing">Todo</h1>
     </header>
     <app-todo-list
-      class="pl-item-spacing"
-      [todos]="todos$ | async"
+      class="pl-item-spacing mb-group-spacing"
+      [todos]="todos"
     ></app-todo-list>
+    <div class="pl-item-spacing">
+      <app-todo-input
+        [typing]="typing"
+        (typingStarted)="typing = true"
+        (added)="addTodo($event)"
+        (canceled)="typing = false"
+      ></app-todo-input>
+    </div>
   </div>
   <footer class="pb-item-spacing pt-item-spacing pl-item-spacing inverted">
     <a class="inverted focusable-inverted" href="https://google.com">README</a>

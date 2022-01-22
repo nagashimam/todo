@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { TodosService } from '../services/todos/todos.service';
 
 @Component({
@@ -8,11 +7,18 @@ import { TodosService } from '../services/todos/todos.service';
   styleUrls: ['./todos.component.scss'],
 })
 export class TodosComponent implements OnInit {
-  todos$: Observable<string[]> | null = null;
+  typing = false;
+  todos: string[] | null = null;
 
   constructor(private todosService: TodosService) {}
 
   ngOnInit(): void {
-    this.todos$ = this.todosService.getTodos$();
+    this.todosService.getTodos$().subscribe((todos) => (this.todos = todos));
+  }
+
+  addTodo(todo: string) {
+    console.log('todo', todo);
+    this.typing = false;
+    this.todosService.addTodo(todo);
   }
 }
