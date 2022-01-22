@@ -19,6 +19,7 @@
   - [ ] ToDo を localstrage に追加する処理を追加
   - [ ] ToDo を localstrage から読み込む処理を追加
   - [ ] localStrage への書き込み・読み込みに失敗した場合の処理を追加
+  - [ ] ToDo の入力欄にバリデーションを追加
   - [ ] ToDo の詳細を表示する View を追加
   - [ ] localstrage に保存してある ToDo を更新する処理を追加
 - [ ] 認証機能を追加する
