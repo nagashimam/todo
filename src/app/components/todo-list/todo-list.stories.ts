@@ -1,5 +1,5 @@
 import { TodoListComponent } from './todo-list.component';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@storybook/testing-library';
 import { Story, moduleMetadata } from '@storybook/angular';
 import { TodoListModule } from './todo-list.module';
 
@@ -44,8 +44,8 @@ export const LongTodo = {
 export const Tab = {
   args: TwoTodo.args,
   storyName: 'タブ押下後',
-  play: () => {
-    userEvent.tab();
+  play: async () => {
+    await userEvent.tab();
   },
 };
 
